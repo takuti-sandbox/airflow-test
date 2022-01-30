@@ -13,8 +13,5 @@ class ExampleBackend(LineageBackend):
             "outlets": [str(outlet) for outlet in outlets],
             "context": str(context),
         }
-        try:
-            requests.post(url, json=data)
-            operator.log.info(f"Sent lineage to {url}: {data}")
-        except Exception as e:
-            operator.log.error(e)
+        requests.post(url, json=data)
+        operator.log.info(f"Sent lineage to {url}: {data}")
