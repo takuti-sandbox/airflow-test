@@ -11,7 +11,7 @@ class ExampleBackend(LineageBackend):
             "operator": operator.__class__.__name__,
             "inlets": [str(inlet) for inlet in inlets],
             "outlets": [str(outlet) for outlet in outlets],
-            "context": context,
+            "context": str(context),
         }
         try:
             requests.post(url, json=data)
