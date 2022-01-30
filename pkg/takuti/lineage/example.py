@@ -1,4 +1,6 @@
 from airflow.lineage.backend import LineageBackend
+from airflow.lineage.entities import File
+
 import requests
 
 class ExampleBackend(LineageBackend):
@@ -7,8 +9,8 @@ class ExampleBackend(LineageBackend):
         url = "https://webhook.site/8fe779dc-10ae-4917-8f41-685723a31064"
         data = {
             "operator": operator.__class__.__name__,
-            "inlets": inlets,
-            "outlets": outlets,
+            "inlets": [str(inlet) for inlet in inlets],
+            "outlets": [str(outlet) for outlet in outlets],
             "context": context,
         }
         try:
