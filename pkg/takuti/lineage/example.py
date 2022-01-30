@@ -1,5 +1,4 @@
 from airflow.lineage.backend import LineageBackend
-from airflow.lineage.entities import File
 
 import requests
 
